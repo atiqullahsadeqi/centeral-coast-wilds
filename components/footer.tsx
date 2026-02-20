@@ -1,15 +1,15 @@
 import Link from "next/link"
-import { Github, Twitter, Linkedin } from "lucide-react"
+import { Github, Twitter, Linkedin, Instagram } from "lucide-react"
 
 export function Footer() {
   return (
     <footer className="border-t bg-background">
-      <div className="container py-12">
+      <div className="container mx-auto py-12 px-4 md:px-0">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
             <h3 className="mb-4 text-lg font-semibold">CCW</h3>
             <p className="text-sm text-muted-foreground">
-              Building exceptional digital experiences.
+              Restoring the habitats that sustain us.
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/blog" className="text-muted-foreground hover:text-foreground">
-                  Blog
+                  Articles
                 </Link>
               </li>
             </ul>
@@ -39,17 +39,17 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/services/web" className="text-muted-foreground hover:text-foreground">
-                  Web Development
+                  Ecological Consulting
                 </Link>
               </li>
               <li>
                 <Link href="/services/design" className="text-muted-foreground hover:text-foreground">
-                  Design
+                  Ecological Restoration
                 </Link>
               </li>
               <li>
                 <Link href="/services/consulting" className="text-muted-foreground hover:text-foreground">
-                  Consulting
+                 Ecological Agriculture
                 </Link>
               </li>
             </ul>
@@ -58,14 +58,8 @@ export function Footer() {
           <div>
             <h4 className="mb-4 text-sm font-semibold">Connect</h4>
             <div className="flex space-x-4">
-              <Link href="https://github.com" className="text-muted-foreground hover:text-foreground">
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link href="https://twitter.com" className="text-muted-foreground hover:text-foreground">
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link href="https://linkedin.com" className="text-muted-foreground hover:text-foreground">
-                <Linkedin className="h-5 w-5" />
+              <Link href="https://www.instagram.com/centralcoastwilds/" className="text-muted-foreground hover:text-foreground">
+                <Instagram />
               </Link>
             </div>
           </div>

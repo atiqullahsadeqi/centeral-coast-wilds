@@ -25,7 +25,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold">CCW</span>
+          <span className="text-xl font-bold ml-4 md:ml-0">CCW</span>
         </Link>
 
         <NavigationMenu className="hidden md:flex">
@@ -93,12 +93,12 @@ export function Header() {
               <SheetHeader>
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-4">
-                <Link href="/" className="text-lg font-medium hover:text-primary">
+              <nav className="flex flex-col gap-4 px-4">
+                <Link href="/" className="text-md font-medium hover:text-primary">
                   Home
                 </Link>
                 <div className="flex flex-col gap-2">
-                  <span className="text-lg font-medium">Services</span>
+                  <span className="text-md font-medium">Services</span>
                   <Link href="/services/web" className="pl-4 text-muted-foreground hover:text-foreground">
                     Web Development
                   </Link>
@@ -106,10 +106,10 @@ export function Header() {
                     Design
                   </Link>
                 </div>
-                <Link href="/about" className="text-lg font-medium hover:text-primary">
+                <Link href="/about" className="text-md font-medium hover:text-primary">
                   About
                 </Link>
-                <Link href="/contact" className="text-lg font-medium hover:text-primary">
+                <Link href="/contact" className="text-md font-medium hover:text-primary">
                   Contact
                 </Link>
                 <Button asChild className="mt-4">
