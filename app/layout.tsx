@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Central Coast Wilds",
   description: "Restoring the habitats that sustain us.",
+  icons: {
+    icon: "http://www.centralcoastwilds.com/slices/newfront_01.jpg",
+  },
 };
 
 export default function RootLayout({
