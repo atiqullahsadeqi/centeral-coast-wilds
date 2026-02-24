@@ -5,10 +5,24 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
+        hostname: 'centralcoastwilds.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'www.centralcoastwilds.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.centralcoastwilds.com',
+        pathname: '/**',
+      }
     ],
   },
 };
