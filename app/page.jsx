@@ -98,7 +98,7 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <div ref={heroRef} className="w-full h-[calc(100vh-80px)] p-0 md:p-6 mt-0 md:-mt-5 overflow-hidden">
-        <div className="hero-bg w-full h-full bg-[url(http://www.centralcoastwilds.com/news/2021/2021-Spring-Growth-CCW/Dichelostemma-multiflorum--Wild-Hyacinth.jpg)] bg-cover bg-center rounded-none md:rounded-4xl overflow-hidden relative">
+        <div className="hero-bg w-full h-full bg-[url(https://images.unsplash.com/photo-1746982080595-ecf9847e2e99?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover bg-center rounded-none md:rounded-4xl overflow-hidden relative">
 
           {/* Overlay with grid */}
           <div className="w-full h-full bg-black/30 md:bg-transparent grid grid-cols-1 md:grid-cols-3 p-4 md:p-12 relative z-10">
