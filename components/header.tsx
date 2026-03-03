@@ -25,6 +25,7 @@ import { services } from "@/lib/services"
 import { useState } from "react"
 
 export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [aboutOpen, setAboutOpen] = useState(false)
   return (
@@ -121,7 +122,7 @@ export function Header() {
             <Link href="/appointment">Book Appointment</Link>
           </Button>
 
-          <Sheet>
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
@@ -132,11 +133,11 @@ export function Header() {
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-4 px-4 mt-6">
-                <Link href="/" className="text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
+                <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
                   Home
                 </Link>
                 <div className="flex flex-col gap-2">
-                  <button 
+                  <button
                     onClick={() => setServicesOpen(!servicesOpen)}
                     className="flex items-center justify-between text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground"
                   >
@@ -147,6 +148,7 @@ export function Header() {
                     <Link
                       key={service.slug}
                       href={service.link}
+                      onClick={() => setMobileMenuOpen(false)}
                       className="pl-8 py-2 text-sm text-primary rounded-md transition-colors hover:bg-primary hover:text-primary-foreground"
                     >
                       {service.title}
@@ -154,7 +156,7 @@ export function Header() {
                   ))}
                 </div>
                 <div className="flex flex-col gap-2">
-                  <button 
+                  <button
                     onClick={() => setAboutOpen(!aboutOpen)}
                     className="flex items-center justify-between text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground"
                   >
@@ -163,26 +165,29 @@ export function Header() {
                   </button>
                   {aboutOpen && (
                     <>
-                      <Link href="/about" className="pl-8 py-2 text-sm text-white/80 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
+                      <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="pl-8 py-2 text-sm text-primary rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
                         About Us
                       </Link>
-                      <Link href="/about/team" className="pl-8 py-2 text-sm text-white/80 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
+                      <Link href="/about/team" onClick={() => setMobileMenuOpen(false)} className="pl-8 py-2 text-sm text-primary rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
                         Our Team
                       </Link>
-                      <Link href="/about/links" className="pl-8 py-2 text-sm text-white/80 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
+                      <Link href="/about/links" onClick={() => setMobileMenuOpen(false)} className="pl-8 py-2 text-sm text-primary rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
                         Links & Resources
                       </Link>
                     </>
                   )}
                 </div>
-                <Link href="/contact" className="text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
+                <Link href="/articles" onClick={() => setMobileMenuOpen(false)} className="text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
+                  Articles
+                </Link>
+                <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
                   Contact
                 </Link>
-                <Link href="/jobs" className="text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
+                <Link href="/jobs" onClick={() => setMobileMenuOpen(false)} className="text-md font-medium px-4 py-2 rounded-md transition-colors hover:bg-primary hover:text-primary-foreground">
                   Job Opportunities
                 </Link>
                 <Button asChild className="mt-4">
-                  <Link href="/appointment">Book Appointment</Link>
+                  <Link href="/appointment" onClick={() => setMobileMenuOpen(false)}>Book Appointment</Link>
                 </Button>
               </nav>
             </SheetContent>

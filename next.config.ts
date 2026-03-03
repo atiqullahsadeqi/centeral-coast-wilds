@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // This creates the static "out" folder
+  experimental: {
+    workerThreads: false,
+    cpus: 2, // Restricts Next.js to 2 background processes to prevent CloudLinux crashes
+  },
   images: {
-    unoptimized: true, // Required for static exports using <Image />
+
     remotePatterns: [
       {
         protocol: 'https',

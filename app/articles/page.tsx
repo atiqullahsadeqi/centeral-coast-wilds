@@ -7,14 +7,21 @@ import { Calendar, ArrowRight, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
+const CATEGORIES = ["All", "Restoration", "Plant Spotlight", "Landscaping", "Education"];
+
 export default function ArticlesPage() {
     const [searchQuery, setSearchQuery] = useState("");
+    const [activeCategory, setActiveCategory] = useState("All");
 
-    const filteredArticles = articles.filter(article =>
-        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.category.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredArticles = articles.filter(article => {
+        const matchesSearch =
+            article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            article.category.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory =
+            activeCategory === "All" || article.category === activeCategory;
+        return matchesSearch && matchesCategory;
+    });
 
     return (
         <div className="min-h-screen flex flex-col ">
@@ -44,10 +51,13 @@ export default function ArticlesPage() {
                             />
                         </div>
                         <div className="flex gap-4 overflow-x-auto pb-2 w-full md:w-auto">
-                            {["All", "Restoration", "Plant Spotlight", "Landscaping", "Education"].map(cat => (
+                            {CATEGORIES.map(cat => (
                                 <button
                                     key={cat}
-                                    className={`px-4 py-1.5 cursor-pointer rounded-full text-sm font-medium whitespace-nowrap transition-colors ${cat === "All" ? "bg-[#789d6a] text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                    onClick={() => setActiveCategory(cat)}
+                                    className={`px-4 py-1.5 cursor-pointer rounded-full text-sm font-medium whitespace-nowrap transition-colors ${cat === activeCategory
+                                            ? "bg-[#789d6a] text-white"
+                                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                                         }`}
                                 >
                                     {cat}
@@ -109,7 +119,7 @@ export default function ArticlesPage() {
                             <div className="text-center py-20">
                                 <p className="text-gray-500 text-lg">No articles found matching your criteria.</p>
                                 <button
-                                    onClick={() => setSearchQuery("")}
+                                    onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}
                                     className="mt-4 text-[#789d6a] font-semibold underline"
                                 >
                                     Clear search
